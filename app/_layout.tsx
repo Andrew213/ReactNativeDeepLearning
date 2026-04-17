@@ -1,5 +1,4 @@
 import {
-  Button,
   Image,
   Text,
   TextInput,
@@ -14,6 +13,8 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
+import { images } from "@/assets";
+import Button from "@/shared/Button";
 
 export default function RooyLayout() {
   const { height, width, scale, fontScale } = useWindowDimensions();
@@ -23,7 +24,7 @@ export default function RooyLayout() {
     <SafeAreaProvider>
       <View className="flex-1 justify-end bg-black">
         <Image
-          source={require("../assets/main.png")}
+          source={images.main}
           resizeMode="cover"
           className="absolute top-0 left-0 w-full"
           style={{
@@ -40,14 +41,14 @@ export default function RooyLayout() {
         />
 
         <SafeAreaView edges={["top", "bottom"]}>
-          <View className="  px-[30px]">
+          <View className="px-[30px]">
             <View className="gap-2">
               <Text className="font-semibold text-center text-white text-[34px]">
                 Один из самых вкусных кофе в городе!
               </Text>
 
               <Text
-                className="text-center px-4 text-[#a9a9a9]"
+                className="text-center px-4 text-text-gray"
                 style={{
                   lineHeight: 25,
                 }}
@@ -56,11 +57,7 @@ export default function RooyLayout() {
               </Text>
             </View>
 
-            <TouchableOpacity className="bg-card rounded-2xl mt-6 py-[21px] mb-4">
-              <Text className="text-white font-semibold text-[16px] text-center">
-                Начать
-              </Text>
-            </TouchableOpacity>
+            <Button text="Начать" />
           </View>
         </SafeAreaView>
       </View>

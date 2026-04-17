@@ -5,11 +5,14 @@
 @import "nativewind/theme";
 
 @theme {
-  --color-primary: #6d28d9;
+  --font-sora: "Sora-Regular";
+
+  --color-primary: #c67c4e;
   --color-primary-foreground: #ffffff;
-  --color-bg: #0f172a;
-  --color-card: #1e293b;
-  --color-danger: #dc2626;
+  --color-bg: #f9f9f9;
+  --color-text: #2f2d2c;
+  --color-text-gray: #9b9b9b;
+  --color-text-gray2: #2f4b4e;
 
   --font-sans: "Inter";
   --font-heading: "Poppins";
