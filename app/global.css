@@ -5,15 +5,15 @@
 @import "nativewind/theme";
 
 @theme {
-  --font-sora: "Sora-Regular";
-
+  --font-sora: "SoraRegular";
+  --font-sora-medium: "SoraMedium";
+  --font-sora-bold: "SoraBold";
+  --font-sora-semiBold: "SoraSemiBold";
   --color-primary: #c67c4e;
   --color-primary-foreground: #ffffff;
   --color-bg: #f9f9f9;
   --color-text: #2f2d2c;
   --color-text-gray: #9b9b9b;
   --color-text-gray2: #2f4b4e;
-
-  --font-sans: "Inter";
-  --font-heading: "Poppins";
+  --font-sans: "Sora";
 }

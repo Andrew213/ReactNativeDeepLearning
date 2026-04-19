@@ -7,6 +7,7 @@
     "icon": "./assets/images/icon.png",
     "scheme": "reactnativedeeplearning",
     "userInterfaceStyle": "automatic",
+    "backgroundColor": "black",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
@@ -19,7 +20,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.ReactNativeDeepLearning"
     },
     "web": {
       "output": "static",
@@ -27,18 +29,19 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router",
-      [
-        "expo-font",
-        {
-          "fonts": [
-            "./assets/fonts/Sora-Medium.ttf",
-            "./assets/fonts/Sora-Bold.ttf",
-            "./assets/fonts/Sora-Light.ttf",
-            "./assets/fonts/Sora-Regular.ttf"
-          ]
-        }
-      ]
+      "expo-router"
+      // [
+      //   "expo-font",
+      //   {
+      //     "fonts": [
+      //       "./assets/fonts/Sora-Medium.ttf",
+      //       "./assets/fonts/Sora-Bold.ttf",
+      //       "./assets/fonts/Sora-Light.ttf",
+      //       "./assets/fonts/Sora-Regular.ttf",
+      //       "./assets/fonts/Sekuya-Regular.ttf"
+      //     ]
+      //   }
+      // ]
     ],
     "experiments": {
       "typedRoutes": true,
