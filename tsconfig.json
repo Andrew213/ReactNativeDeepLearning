@@ -1,11 +1,15 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "types": ["node"],
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
+    }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     }
   },
   "include": [

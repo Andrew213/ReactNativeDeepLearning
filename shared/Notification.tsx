@@ -1,13 +1,15 @@
-import { SetStateAction, useEffect, useRef, useState } from "react";
-import { Animated, Text, View } from "react-native";
+import {SetStateAction, useEffect, useRef, useState} from "react";
+import {Animated, Text} from "react-native";
+
 interface Props {
   text: string;
   onNotificationHide: React.Dispatch<SetStateAction<string>>;
 }
 
-const Notification: React.FC<Props> = ({ text, onNotificationHide }) => {
+const Notification: React.FC<Props> = ({text, onNotificationHide}) => {
   const [isShown, setIsShown] = useState(false);
-  const animatedStyle = useRef(new Animated.Value(0)).current;
+  const [animatedStyle] = useState(() => new Animated.Value(0));
+
   const [isAnimating, setIsAnimating] = useState(false);
   const timerRef = useRef<number | null>(null);
 
@@ -69,9 +71,8 @@ const Notification: React.FC<Props> = ({ text, onNotificationHide }) => {
   return (
     <Animated.View
       className="absolute bg-red-600 w-full p-3.75 top-12.5"
-      style={{ opacity, transform: [{ translateY: transform }] }}
-    >
-      <Text className="text-white text-center text-[16px]">{text}</Text>
+      style={{opacity, transform: [{translateY: transform}]}}>
+      <Text className="text-white text-center text-[16px]">{text}</Text>ф
     </Animated.View>
   );
 };
