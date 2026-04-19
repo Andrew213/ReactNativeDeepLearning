@@ -1,25 +1,40 @@
-import {
-  Image,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  useWindowDimensions,
-  View,
-} from "react-native";
+import { Animated, Image, Text, View } from "react-native";
 import "./global.css";
-import {
-  SafeAreaProvider,
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { images } from "@/assets";
 import Button from "@/shared/Button";
+import { useEffect, useRef } from "react";
 
 export default function RooyLayout() {
-  const { height, width, scale, fontScale } = useWindowDimensions();
-  const insets = useSafeAreaInsets();
-  const w = width / 2 - 5;
+  // const { height, width, scale, fontScale } = useWindowDimensions();
+  // const insets = useSafeAreaInsets();
+  // const w = width / 2 - 5;
+
+  const animatedStyle = useRef(new Animated.Value(0)).current;
+
+  const opacity = animatedStyle.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1],
+  });
+
+  const translateY = animatedStyle.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-50, 0],
+  });
+
+  const animate = (toValue: number) => {
+    Animated.timing(animatedStyle, {
+      toValue,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  useEffect(() => {
+    animate(1);
+  }, []);
+
   return (
     <SafeAreaProvider>
       <View className="flex-1 justify-end bg-black">
@@ -43,9 +58,15 @@ export default function RooyLayout() {
         <SafeAreaView edges={["top", "bottom"]}>
           <View className="px-[30px]">
             <View className="gap-2">
-              <Text className="font-semibold text-center text-white text-[34px]">
+              <Animated.Text
+                style={{
+                  transform: [{ translateY }],
+                  opacity,
+                }}
+                className="font-semibold text-center text-white text-[34px]"
+              >
                 Один из самых вкусных кофе в городе!
-              </Text>
+              </Animated.Text>
 
               <Text
                 className="text-center px-4 text-text-gray"
@@ -56,7 +77,6 @@ export default function RooyLayout() {
                 Свежие зёрна, настоящая арабика и бережная обжарка
               </Text>
             </View>
-
             <Button text="Начать" />
           </View>
         </SafeAreaView>
